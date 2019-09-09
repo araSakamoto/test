@@ -13,7 +13,7 @@ import os
 
 app = Flask(__name__)
 
-#ŠÂ‹«•Ï”æ“¾
+#ç’°å¢ƒå¤‰æ•°å–å¾—
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["8mVYpp/SacL0hTRM41ZCK8gKaeeGjI8zSilyEqvzACeGL9MrPANr+zdg/NvRlPDuNPzTtti41CYXYHvR76B/Ii5MhRpMBRupGf14yYdaO5hdZoY20JRzxOVTLPmj2aTqWcLTGJDC/Wvq1qsGU0be5gdB04t89/1O/w1cDnyilFU="]
 YOUR_CHANNEL_SECRET = os.environ["2ccda15a8da557a79b65c524bad77dd8
 "]
