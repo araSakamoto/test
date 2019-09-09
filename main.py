@@ -17,13 +17,13 @@ app = Flask(__name__)
 
 
 #ä¬ã´ïœêîÇ©ÇÁLINE Access TokenÇê›íË
-LINE_CHANNEL_ACCESS_TOKEN = os.environ[8mVYpp/SacL0hTRM41ZCK8gKaeeGjI8zSilyEqvzACeGL9MrPANr+zdg/NvRlPDuNPzTtti41CYXYHvR76B/Ii5MhRpMBRupGf14yYdaO5hdZoY20JRzxOVTLPmj2aTqWcLTGJDC/Wvq1qsGU0be5gdB04t89/1O/w1cDnyilFU=]
+YOUR_CHANNEL_ACCESS_TOKEN = os.environ["8mVYpp/SacL0hTRM41ZCK8gKaeeGjI8zSilyEqvzACeGL9MrPANr+zdg/NvRlPDuNPzTtti41CYXYHvR76B/Ii5MhRpMBRupGf14yYdaO5hdZoY20JRzxOVTLPmj2aTqWcLTGJDC/Wvq1qsGU0be5gdB04t89/1O/w1cDnyilFU="]
 #ä¬ã´ïœêîÇ©ÇÁLINE Channel SecretÇê›íË
-LINE_CHANNEL_SECRET = os.environ[2ccda15a8da557a79b65c524bad77dd8
+YOUR_CHANNEL_SECRET = os.environ["2ccda15a8da557a79b65c524bad77dd8"
 ]
 
-line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(LINE_CHANNEL_SECRET)
+line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -42,14 +42,15 @@ def callback():
 
     return 'OK'
 
-# MessageEvent
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-	line_bot_api.reply_message(
+    line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='Åu' + event.message.text + 'ÅvÇ¡ÇƒâΩÅH')
-     )
+        TextSendMessage(text=event.message.text))
+
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT"))
+#    app.run()
+    port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
