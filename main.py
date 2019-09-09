@@ -1,4 +1,3 @@
-# インポートするライブラリ
 from flask import Flask, request, abort
 
 from linebot import (
@@ -8,19 +7,16 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    FollowEvent, MessageEvent, TextMessage, TextSendMessage, ImageMessage, ImageSendMessage, TemplateSendMessage, ButtonsTemplate, PostbackTemplateAction, MessageTemplateAction, URITemplateAction
+    MessageEvent, TextMessage, TextSendMessage,
 )
 import os
 
-# 軽量なウェブアプリケーションフレームワーク:Flask
 app = Flask(__name__)
 
-
-#環境変数からLINE Access Tokenを設定
+#環境変数取得
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["8mVYpp/SacL0hTRM41ZCK8gKaeeGjI8zSilyEqvzACeGL9MrPANr+zdg/NvRlPDuNPzTtti41CYXYHvR76B/Ii5MhRpMBRupGf14yYdaO5hdZoY20JRzxOVTLPmj2aTqWcLTGJDC/Wvq1qsGU0be5gdB04t89/1O/w1cDnyilFU="]
-#環境変数からLINE Channel Secretを設定
-YOUR_CHANNEL_SECRET = os.environ["2ccda15a8da557a79b65c524bad77dd8"
-]
+YOUR_CHANNEL_SECRET = os.environ["2ccda15a8da557a79b65c524bad77dd8
+"]
 
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
